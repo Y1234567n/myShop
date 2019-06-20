@@ -24,7 +24,7 @@ export default function ajax(url, data={}, method='GET') {
     promise.then(
       response => {  // 如果成功了, 调用resolve()
         resolve(response.data)
-      },
+      }).catch(
       error => { // 如果失败了, 不调用reject(), 而是提示错误信息
         MessageBox.alert('请求异常: ' + error.message)
       }

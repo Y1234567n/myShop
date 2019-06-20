@@ -1,4 +1,4 @@
-import  Home from '../pages/Home'
+import Home from '../pages/Home'
 import Classify from '../pages/Classify'
 import IdentifyGoods from '../pages/Identify-goods'
 import ShoppingTrolley from '../pages/Shopping-trolley'

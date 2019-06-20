@@ -2,7 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import store from './vuex'
 import router from './router'
+import './mockData/mockServer'
 import 'lib-flexible/flexible'
 // import rem from '../static/js/rem'
 //   rem()
@@ -13,6 +15,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

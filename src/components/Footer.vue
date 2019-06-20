@@ -32,7 +32,6 @@ export default {
     }
   },
   mounted (){
-    console.log(this.$router)
     this.isRed = this.$route.path
   },
   methods: {

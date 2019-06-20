@@ -1,0 +1,4 @@
+/* 总mutations */
+export default{
+
+}
