@@ -14,9 +14,6 @@
     <CategoyLists :isCategoy="5" :swipe="'zhongChouList'"/>
     <CategoyLists :isCategoy="999" v-for="(item, index) in categoryModule" :key="index" :swipe="item"/>
     <HomeFooter/>
-
-
-
  </div>
 </template>
 
@@ -53,11 +50,5 @@ import HomeFooter from '../../components/Home/home-footer'
     overflow hidden
     background-color #f4f4f4
     
-
-            
-
-        
-
-
  
 </style>

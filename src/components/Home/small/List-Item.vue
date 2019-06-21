@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="swiper-container" v-if="swipe==='personalShop'">
+    <div class="swiper-container swiper2" v-if="swipe==='personalShop'">
       <ul class="swiper-wrapper">
           <li class="swiper-slide" v-for="(item, index) in dynamicData" :key="index">
            <div class="item-list">
@@ -12,7 +12,7 @@
           </li>
       </ul>
       <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>   
+      <div class="swiper-pagination page2"></div>   
     </div>
     <!-- 非轮播 -->
     <div>
@@ -22,9 +22,7 @@
             <div class="item-list" ref="setThisWidth"  :class="{topicId:swipe==='topicList'}">
               <div v-for="(item, index) in dynamicData" :key="item.id||item.itemId||index"  >
                 <!-- v-if="item.picUrl||item.primaryPicUrl" -->
-                <Li :liData="item"  />
-               
-
+                <Li :liData="item"  />               
               </div>
                <div v-if="swipe.itemList" :class="{more:swipe.itemList}">
                  <div>查看更多<span class="iconfont icon-xiangyoujiantou"></span></div>
@@ -48,17 +46,17 @@
      },
    mounted (){
      
-    if(this.swipe==='personalShop'){
+    // if(this.swipe==='personalShop'){
 
-      const bannerSwiper = new Swiper ('.swiper-container', {
-        loop: true, // 循环模式选项  
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets'
-        }
-      })  
-    }
+    //   this.bannerSwiper = new Swiper ('.swiper2', {
+    //     loop: true, // 循环模式选项  
+    //     // 如果需要分页器
+    //     pagination: {
+    //       el: '.swiper-pagination',
+    //       type: 'bullets'
+    //     }
+    //   })  
+    // }
     if(this.swipe==='topicList'){
       new BScroll(this.$refs.wrapper, {
         scrollX:true,
@@ -83,6 +81,18 @@
       }else{
         // 当swipe是直接指定的字符串时，则去vuex中的home模块的计算属性getters获取对应的数据
           const dynamicDatas = this.$store.getters[this.swipe] ||[]
+          // this.$nextTick(()=>{
+          //   if(this.swipe==='personalShop'){
+          //     this.bannerSwiper = new Swiper ('.swiper2', {
+          //       loop: true, // 循环模式选项  
+          //       // 如果需要分页器
+          //       pagination: {
+          //         el: '.page2',
+          //         type: 'bullets'
+          //       }
+          //     })  
+          //   }
+          // })
             if(this.swipe==='personalShop'){       
             let listArr = []
             const swiperArr = dynamicDatas.reduce((arr,item)=>{
@@ -110,6 +120,19 @@
       if(Object.prototype.toString.call(this.swipe)==='[object Object]'){
       setWidth()
       }
+      
+          this.$nextTick(()=>{
+            if(this.swipe==='personalShop'){
+              this.bannerSwiper = new Swiper ('.swiper2', {
+                loop: true, // 循环模式选项  
+                // 如果需要分页器
+                pagination: {
+                  el: '.page2',
+                  type: 'bullets'
+                }
+              })  
+            }
+          })
     }
   },
   methods: {

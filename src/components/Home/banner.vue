@@ -1,19 +1,19 @@
 <template>
  <div class="banner">
-    <div class="swiper-container">
+    <div class="swiper-container swiper1">
       <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img src="../../imgs/banner.jpg" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="../../imgs/banner.jpg" alt="">
+            <img src="https://yanxuan.nosdn.127.net/1a6763ce33440783cc6700fd132b6375.jpg" alt="">
           </div>
           <div class="swiper-slide">
             <img src="../../imgs/banner.jpg" alt="">
           </div>
       </div>
       <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>   
+      <div class="swiper-pagination page1"></div>   
     </div>
     <ul class="g-grow" >
       <li class="item" v-for="(item, index) in policyDescList" :key="index" >
@@ -33,11 +33,11 @@
  export default {
   async mounted(){
        const HomeDatas = await this.$store.dispatch('getHomeData')
-      const bannerSwiper = new Swiper ('.swiper-container', {
+      const bannerSwiper = new Swiper ('.swiper1', {
       loop: true, // 循环模式选项  
       // 如果需要分页器
       pagination: {
-        el: '.swiper-pagination',
+        el: '.page1',
       }
    })  
    },
