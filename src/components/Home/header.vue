@@ -2,14 +2,14 @@
   <div class="header-warp">
     <header class="header">
       <h1 class="title">网易严选</h1>
-      <div class="search" >
+      <div class="search" @click="$router.push('/search')" >
         <span class="iconfont icon-sousuo search-icon">
           搜索商品，共{{shopNo}}款好品
         </span>
       </div>
-      <div class="btn-register" >登录</div>
+      <div class="btn-register" @click="$router.push('/my')" >登录</div>
     </header>
-    <nav class="header-nav">
+    <nav class="header-nav homeHeaderNav">
       <ul class="nav-list"> 
         <li class="nav-item" v-for="(item, index) in nav" :key="index"  :class="{active:isBorder===index}" @click="isBorder = index">
           <span class="nav-item-text">{{item}}</span>
@@ -41,12 +41,13 @@ import BScroll from 'better-scroll'
   },
     async mounted (){
 
-    let resvle = await this.$store.dispatch('getshopNUM')
-   
-    new BScroll('.header-nav', {
+  let resvle = await this.$store.dispatch('getshopNUM')
+   this.$nextTick(()=>{
+    new BScroll('.homeHeaderNav', {
         scrollX:true,
         click: true
       })
+   })
   },
 
  }

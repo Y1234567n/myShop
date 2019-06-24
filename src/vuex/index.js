@@ -4,6 +4,8 @@ import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
 import homes from './model/home'
+import classifys from'./model/classify'
+import goods from'./model/goods'
 Vue.use(Vuex)
 
 /* eslint-disable no-new */
@@ -12,6 +14,8 @@ export default new Vuex.Store({
   mutations,
   getters,
   modules: {
-    homes
+    homes,
+    classifys,
+    goods
   }
 })

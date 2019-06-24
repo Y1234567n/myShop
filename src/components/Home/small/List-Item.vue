@@ -118,21 +118,21 @@
   watch: {
     dynamicData(){
       if(Object.prototype.toString.call(this.swipe)==='[object Object]'){
-      setWidth()
+      this.setWidth()
       }
-      
-          this.$nextTick(()=>{
-            if(this.swipe==='personalShop'){
-              this.bannerSwiper = new Swiper ('.swiper2', {
-                loop: true, // 循环模式选项  
-                // 如果需要分页器
-                pagination: {
-                  el: '.page2',
-                  type: 'bullets'
-                }
-              })  
+  
+      this.$nextTick(()=>{
+        if(this.swipe==='personalShop'){
+          this.bannerSwiper = new Swiper ('.swiper2', {
+            loop: true, // 循环模式选项  
+            // 如果需要分页器
+            pagination: {
+              el: '.page2',
+              type: 'bullets'
             }
-          })
+          })  
+        }
+      })
     }
   },
   methods: {

@@ -50,6 +50,7 @@ export default {
   #footer
     width 100%
     position fixed
+    z-index 999
     bottom  0
     left  0
     font-size 24px
